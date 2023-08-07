@@ -13,10 +13,7 @@ export const GET= async() =>{
     return NextResponse.redirect("/login")
  } 
  else{
-    const { payload, protectedHeader } = await jose.jwtVerify(jwt, secret, {
-        issuer: 'urn:example:issuer',
-        audience: 'urn:example:audience',
-      })
+    const { payload, protectedHeader } = await jose.jwtVerify(jwt, secret)
       console.log(payload);
       console.log(protectedHeader);
  }
